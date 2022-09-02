@@ -1,11 +1,11 @@
-FROM alpine:lastest
+FROM webapp.io/docker:20.10
 
+RUN curl -L https://github.com/alist-org/alist/releases/latest/download/alist-linux-musl-amd64.tar.gz -o alist.tar.gz \
+  tar -zxvf alist.tar.gz \
+  rm -f alist.tar.gz \
+  mv alist-linux-musl-amd64 alist \
 
-RUN mkdir -p /opt/alist/data
-RUN chmod -R 777 /opt/alist/data
-RUN chmod +x /alist.sh
-
-RUN sh alist.sh
+RUN chmod 777 alist
 
 # Expose the webserver in the staging server as a secure link.
 # Whenever someone clicks the link, we'll load this staging server and forward
