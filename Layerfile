@@ -1,0 +1,14 @@
+FROM alpine:lastest
+
+
+RUN mkdir -p /opt/alist/data
+RUN chmod -R 777 /opt/alist/data
+RUN chmod +x /alist.sh
+
+RUN sh alist.sh
+
+# Expose the webserver in the staging server as a secure link.
+# Whenever someone clicks the link, we'll load this staging server and forward
+# their requests to it.
+EXPOSE WEBSITE http://localhost:5244
+    
