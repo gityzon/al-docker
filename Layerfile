@@ -5,9 +5,6 @@ RUN  tar -zxvf alist.tar.gz
 RUN  rm -f alist.tar.gz
 RUN  mv alist-linux-musl-amd64 alist
 RUN chmod 777 alist
-RUN ./alist
+RUN BACKGROUND  ./alist -docker
 
-# Expose the webserver in the staging server as a secure link.
-# Whenever someone clicks the link, we'll load this staging server and forward
-# their requests to it.
 EXPOSE WEBSITE localhost:5244
