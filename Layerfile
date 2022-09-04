@@ -7,4 +7,4 @@ RUN  mv alist-linux-musl-amd64 alist
 RUN chmod 777 alist
 RUN BACKGROUND  ./alist -docker
 
-EXPOSE WEBSITE localhost:5244
+EXPOSE WEBSITE 5244
